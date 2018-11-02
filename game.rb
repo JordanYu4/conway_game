@@ -4,7 +4,6 @@ class Game
 
   def initialize(size=nil)
     @grid = Grid.new(size)
-    print 'game size param: ' + size.to_s
   end
 
   def take_turn 
@@ -22,5 +21,5 @@ class Game
 
 end
 
-new_game = Game.new(21)
+new_game = Game.new(9)
 new_game.play

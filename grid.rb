@@ -18,19 +18,18 @@ class Grid
   def initialize(size = 21)
     # print "grid size param: " + size.to_s
     @size = size
-    grid = Array.new(size)
-    @grid = grid
+    @grid = Array.new(size) { Array.new(size) { Cell.new } }
     self.seed
     self.step
   end
 
   def seed
-    @grid.each_with_index do |row, row_idx| 
-      row.each_index do |col_idx|
-        new_cell = Cell.new
-        @grid[row_idx][col_idx] = new_cell
-        put_down = rand(100) 
-        new_cell.sleep if put_down < 50
+    @grid.each do |row| 
+      row.each do |cell|
+        # new_cell = Cell.new
+        # @grid[row_idx][col_idx] = new_cell
+        put_up = rand(100) 
+        cell.animate if put_up < 50
       end
     end
   end
@@ -52,10 +51,10 @@ class Grid
             count += 1
           end
         end
-        print("row: #{row.object_id} ")
-        print("cell: #{cell.object_id}")
+        # print("row: #{row.object_id} ")
+        # print("cell: #{cell.object_id}")
         # print("-------")
-        print("\n")
+        # print("\n")
         # print count
         # print("\n")
         if count < 2 

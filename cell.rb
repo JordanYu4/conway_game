@@ -13,7 +13,7 @@ class Cell
   attr_accessor :num_neighbors
 
   def initialize 
-    @active = true
+    @active = false
     @num_neighbors = nil
   end
 
